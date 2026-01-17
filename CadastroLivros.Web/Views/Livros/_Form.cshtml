@@ -1,0 +1,105 @@
+﻿@model CadastroLivros.Web.ViewModels.LivroVm
+
+<div class="row g-3">
+
+    <div class="col-lg-6">
+        <label asp-for="Titulo" class="form-label fw-semibold"></label>
+        <input asp-for="Titulo" class="form-control" placeholder="Ex: Dom Casmurro" />
+        <span id="titulo-error" asp-validation-for="Titulo" class="text-danger"></span>        
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="Editora" class="form-label fw-semibold"></label>
+        <input asp-for="Editora" class="form-control" placeholder="Ex: Companhia das Letras" />
+        <span asp-validation-for="Editora" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="Edicao" class="form-label fw-semibold"></label>
+        <input asp-for="Edicao" class="form-control" type="number" placeholder="Ex: 1" />
+        <span asp-validation-for="Edicao" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="AnoPublicacao" class="form-label fw-semibold"></label>
+        <input asp-for="AnoPublicacao" class="form-control" maxlength="4" placeholder="Ex: 2024" inputmode="numeric" />
+        <span asp-validation-for="AnoPublicacao" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6 d-none d-md-block">
+        <div class="alert alert-info border-0 py-2 mb-0 small">
+            <i class="bi bi-info-circle me-1"></i>
+            Dica: cadastre autores e assuntos antes, e selecione múltiplos com Ctrl (ou Shift).
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <label class="form-label fw-semibold">Autores</label>
+        <select class="form-select" asp-for="AutoresSelecionados" multiple size="6"
+                asp-items="@(new SelectList(Model.Autores, nameof(CadastroLivros.Web.ViewModels.ItemVm.Id), nameof(CadastroLivros.Web.ViewModels.ItemVm.Texto)))">
+        </select>
+        <span asp-validation-for="AutoresSelecionados" class="text-danger"></span>
+        <div class="form-text">
+            <i class="bi bi-mouse me-1"></i> Segure Ctrl para selecionar mais de um autor.
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <label class="form-label fw-semibold">Assuntos</label>
+        <select class="form-select" asp-for="AssuntosSelecionados" multiple size="6"
+                asp-items="@(new SelectList(Model.Assuntos, nameof(CadastroLivros.Web.ViewModels.ItemVm.Id), nameof(CadastroLivros.Web.ViewModels.ItemVm.Texto)))">
+        </select>
+        <span asp-validation-for="AssuntosSelecionados" class="text-danger"></span>
+        <div class="form-text">
+            <i class="bi bi-mouse me-1"></i> Segure Ctrl para selecionar mais de um assunto.
+        </div>
+    </div>
+
+</div>
+
+<hr class="my-4" />
+
+<div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+    <h5 class="mb-0 fw-bold">Preços por forma de compra</h5>
+    <span class="badge text-bg-light border">Opcional</span>
+</div>
+
+<div class="card border-0 shadow-sm rounded-4">
+    <div class="card-body p-0">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th>Forma</th>
+                    <th class="text-end" style="width: 220px;">Valor (R$)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Precos.Count; i++)
+                {
+                    <tr>
+                        <td class="fw-semibold">
+                            @Model.Precos[i].FormaCompraNome
+                            <input type="hidden" asp-for="Precos[i].FormaCompraId" />
+                            <input type="hidden" asp-for="Precos[i].FormaCompraNome" />
+                        </td>
+                        <td class="text-end">
+                            <input asp-for="Precos[i].Valor"
+                            type="text"
+                            class="form-control text-end money-br"                                   
+                            inputmode="numeric"
+                            placeholder="0,00" />
+                            <span asp-validation-for="Precos[i].Valor" class="text-danger"></span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="p-3">
+            <div class="form-text">
+                <i class="bi bi-lightbulb me-1"></i>
+                Deixe em branco se não houver preço para a forma de compra.
+            </div>
+        </div>
+    </div>
+</div>

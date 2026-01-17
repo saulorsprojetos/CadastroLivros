@@ -1,0 +1,34 @@
+﻿@model CadastroLivros.Web.ViewModels.RelatorioFiltroVm
+
+<div class="container mt-4">
+    <h4>Relatórios</h4>
+    <p class="text-muted">O relatório é gerado a partir da VIEW do banco (<strong>vw_RelatorioLivrosPorAutor</strong>) e agrupado por autor.</p>
+
+    <div class="card mt-3">
+        <div class="card-body">
+            <form method="get" asp-action="LivrosPorAutor">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-6">
+                        <label class="form-label">Filtrar por autor (opcional)</label>
+                        <select class="form-select" name="autorId">
+                            <option value="">Todos</option>
+                            @foreach (var a in Model.Autores)
+                            {
+                                <option value="@a.Id">@a.Texto</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 text-end">
+                        <button class="btn btn-primary" type="submit">Gerar PDF</button>
+                        <a class="btn btn-secondary" asp-controller="Home" asp-action="Index">Voltar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="alert alert-info mt-3">
+        Dica: cadastre um livro com <strong>mais de um autor</strong> para visualizar o agrupamento corretamente!
+    </div>
+</div>

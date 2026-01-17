@@ -1,0 +1,73 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer.footer {
+    position: static !important;
+    bottom: auto !important;
+}
+
+label {
+    font-weight: 600;
+}
+
+.form-control, .form-select {
+    font-size: 15px;
+}
+
+.btn {
+    min-width: 10px;   
+}
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+.menu-card {
+    background: #fff;
+    transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.08);
+    border-color: rgba(13,110,253,.35) !important; 
+}
+
+.icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(13,110,253,.08);
+    color: #0d6efd;
+}
+
+.nav-hover {
+    border-radius: 999px;
+    padding: .4rem .75rem;
+    transition: background-color .2s ease, color .2s ease;
+}
+
+.nav-hover:hover {
+    background-color: rgba(13,110,253,.08);
+    color: #0d6efd !important;
+}
+
+.btn-compact {
+    padding: .10rem .5rem;
+    font-size: .8rem;
+}
+

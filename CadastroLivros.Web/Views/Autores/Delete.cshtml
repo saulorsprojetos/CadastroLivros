@@ -1,0 +1,12 @@
+﻿@model CadastroLivros.Domain.Entities.Autor
+<div class="container mt-4">
+    <h4>Excluir Autor</h4>
+    <div class="alert alert-warning mt-3">
+        Confirma excluir <strong>@Model.Nome</strong>?
+    </div>
+    <form method="post">
+        <input type="hidden" asp-for="CodAu" />
+        <button class="btn btn-danger" type="submit">Excluir</button>
+        <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+    </form>
+</div>

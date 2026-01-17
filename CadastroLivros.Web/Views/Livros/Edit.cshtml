@@ -1,0 +1,19 @@
+﻿@model CadastroLivros.Web.ViewModels.LivroVm
+
+<div class="container mt-4">
+    <h4>Editar Livro</h4>
+
+    <form asp-action="Edit" method="post" class="mt-3">
+        <input type="hidden" asp-for="Codl" />
+        <partial name="_Form" model="Model" />
+
+        <div class="mt-3">
+            <button class="btn btn-primary" type="submit">Salvar</button>
+            <a class="btn btn-secondary" asp-action="Index">Voltar</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

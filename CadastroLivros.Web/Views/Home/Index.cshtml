@@ -1,0 +1,102 @@
+﻿<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-9 col-xl-8">
+
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <div>
+                    <h3 class="mb-1 fw-bold">Cadastro de Livros</h3>
+                    <p class="text-muted mb-0">Menu principal</p>
+                </div>
+            </div>
+
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body p-4">
+
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+                            <a class="menu-card d-flex align-items-center p-3 rounded-4 border text-decoration-none"
+                               asp-controller="Livros" asp-action="Index">
+                                <div class="icon-wrap me-3">
+                                    <i class="bi bi-book fs-4"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="fw-semibold text-dark">Livros</div>
+                                    <small class="text-muted">Cadastrar, editar, autores, assuntos e preços</small>
+                                </div>
+                                <i class="bi bi-chevron-right text-muted"></i>
+                            </a>
+                        </div>
+
+                        <div class="col-md-6">
+                            <a class="menu-card d-flex align-items-center p-3 rounded-4 border text-decoration-none"
+                               asp-controller="Autores" asp-action="Index">
+                                <div class="icon-wrap me-3">
+                                    <i class="bi bi-person-badge fs-4"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="fw-semibold text-dark">Autores</div>
+                                    <small class="text-muted">Gerenciar autores do catálogo</small>
+                                </div>
+                                <i class="bi bi-chevron-right text-muted"></i>
+                            </a>
+                        </div>
+
+                        <div class="col-md-6">
+                            <a class="menu-card d-flex align-items-center p-3 rounded-4 border text-decoration-none"
+                               asp-controller="Assuntos" asp-action="Index">
+                                <div class="icon-wrap me-3">
+                                    <i class="bi bi-tags fs-4"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="fw-semibold text-dark">Assuntos</div>
+                                    <small class="text-muted">Categorias/temas dos livros</small>
+                                </div>
+                                <i class="bi bi-chevron-right text-muted"></i>
+                            </a>
+                        </div>
+
+                        <div class="col-md-6">
+                            <a class="menu-card d-flex align-items-center p-3 rounded-4 border text-decoration-none"
+                               asp-controller="FormasCompra" asp-action="Index">
+                                <div class="icon-wrap me-3">
+                                    <i class="bi bi-cash-coin fs-4"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="fw-semibold text-dark">Formas de Compra</div>
+                                    <small class="text-muted">Balcão, self-service, internet, evento...</small>
+                                </div>
+                                <i class="bi bi-chevron-right text-muted"></i>
+                            </a>
+                        </div>
+
+                        <div class="col-12">
+                            <a class="menu-card d-flex align-items-center p-3 rounded-4 border text-decoration-none"
+                               asp-controller="Relatorios" asp-action="Index">
+                                <div class="icon-wrap me-3">
+                                    <i class="bi bi-file-earmark-bar-graph fs-4"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="fw-semibold text-dark">
+                                        Relatórios
+                                        <span class="badge text-bg-primary ms-2">PDF</span>
+                                    </div>
+                                    <small class="text-muted">Agrupado por autor, gerado via VIEW do banco</small>
+                                </div>
+                                <i class="bi bi-chevron-right text-muted"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-3">
+                <small class="text-muted d-inline-flex align-items-center gap-1">
+                    <i class="bi bi-lightbulb text-warning"></i>
+                    Dica: cadastre autores e assuntos antes de criar o primeiro livro.
+                </small>
+            </div>
+        </div>
+    </div>
+</div>

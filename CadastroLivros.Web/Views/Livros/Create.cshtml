@@ -1,0 +1,52 @@
+﻿@model CadastroLivros.Web.ViewModels.LivroVm
+
+<div class="container py-4">
+
+    @if (!ViewData.ModelState.IsValid && ViewData.ModelState.ErrorCount > 0)
+    {
+        <div class="alert alert-danger alert-dismissible fade show auto-dismiss mt-3" role="alert">
+            <strong>Atenção:</strong> Verifique as informações e tente novamente!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+        <div>
+            <h4 class="mb-1 fw-bold">Novo Livro</h4>
+            <div class="text-muted small">
+                Preencha os dados abaixo para cadastrar um novo livro.
+            </div>
+        </div>
+
+        <a class="btn btn-outline-secondary" asp-action="Index">
+            <i class="bi bi-arrow-left"></i> Voltar
+        </a>
+    </div>
+
+    <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-body p-4">
+
+            <form asp-action="Create" method="post" novalidate>
+                <partial name="_Form" model="Model" />
+
+                <hr class="my-4" />
+
+                <div class="d-flex flex-wrap justify-content-end gap-2">
+                    <a class="btn btn-outline-secondary" asp-action="Index">
+                        <i class="bi bi-x-lg"></i> Cancelar
+                    </a>
+
+                    <button class="btn btn-primary" type="submit">
+                        <i class="bi bi-check2-circle"></i> Salvar
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

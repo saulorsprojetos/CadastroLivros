@@ -1,0 +1,15 @@
+﻿@model CadastroLivros.Domain.Entities.Livro
+
+<div class="container mt-4">
+    <h4>Excluir Livro</h4>
+
+    <div class="alert alert-warning mt-3">
+        Confirma a exclusão do livro? <strong>@Model.Titulo</strong>?
+    </div>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Codl" />
+        <button class="btn btn-danger" type="submit">Excluir</button>
+        <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+    </form>
+</div>
