@@ -15,7 +15,7 @@ namespace CadastroLivros.Tests
         public async Task Deve_criar_livro_com_campos_obrigatorios()
         {
             var options = new DbContextOptionsBuilder<AppDbContext>()
-                .UseInMemoryDatabase("db_test_1")
+                .UseInMemoryDatabase("db_teste_01")
                 .Options;
 
             using var db = new AppDbContext(options);
@@ -25,7 +25,7 @@ namespace CadastroLivros.Tests
                 Titulo = "Teste",
                 Editora = "Editora",
                 Edicao = 1,
-                AnoPublicacao = "2020"
+                AnoPublicacao = "2022"
             };
 
             db.Livros.Add(livro);

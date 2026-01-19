@@ -23,10 +23,10 @@ namespace CadastroLivros.Tests
         [Fact]
         public async Task Salvar_livro_com_autor_assunto_e_preco()
         {
-            using var db = CreateDb("db_rel_1");
+            using var db = CreateDb("db_relatório_01");
 
-            var autor = new Autor { Nome = "Autor 1" };
-            var assunto = new Assunto { Descricao = "Assunto 1" };
+            var autor = new Autor { Nome = "Autor 01" };
+            var assunto = new Assunto { Descricao = "Assunto 01" };
             var forma = new FormaCompra { Nome = "Internet" };
 
             db.Autores.Add(autor);
@@ -36,10 +36,10 @@ namespace CadastroLivros.Tests
 
             var livro = new Livro
             {
-                Titulo = "Livro 1",
+                Titulo = "Livro 01",
                 Editora = "Editora",
                 Edicao = 1,
-                AnoPublicacao = "2024",
+                AnoPublicacao = "2023",
                 Autores = new List<LivroAutor> { new LivroAutor { Autor_CodAu = autor.CodAu } },
                 Assuntos = new List<LivroAssunto> { new LivroAssunto { Assunto_codAs = assunto.codAs } },
                 Precos = new List<LivroPreco> { new LivroPreco { FormaCompra_Id = forma.Id, Valor = 10.50m } }
